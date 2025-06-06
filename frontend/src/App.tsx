@@ -129,7 +129,7 @@ function ModuleDetail({ module, onBack }: ModuleDetailProps) {
       if (!module.videoUrl) {
         setIsLoadingVideo(true);
         try {
-          const response = await axios.post('http://127.0.0.1:8000/get-video/', {
+          const response = await axios.post('https://craftify-course-creation-platform.onrender.com/get-video/', {
             topic: module.moduleTitle
           });
           setVideoUrl(response.data.video_url);
@@ -499,7 +499,7 @@ function CourseDisplay({ course, onBack }: CourseDisplayProps) {
     
     setIsGeneratingMindMap(true);
     try {
-      const response = await axios.post('http://127.0.0.1:8000/generate-mindmap/', course);
+      const response = await axios.post('https://craftify-course-creation-platform.onrender.com/generate-mindmap/', course);
       setMindMapData(response.data);
     } catch (error: any) {
       console.error('Error generating mindmap:', error);
@@ -528,7 +528,7 @@ function CourseDisplay({ course, onBack }: CourseDisplayProps) {
     
     setIsGeneratingQuiz(true);
     try {
-      const response = await axios.post('http://127.0.0.1:8000/generate-quiz/', {
+      const response = await axios.post('https://craftify-course-creation-platform.onrender.com/generate-quiz/', {
         topic: course.courseTitle
       });
       console.log('Quiz generation response:', response.data);
@@ -685,7 +685,7 @@ function GenerateCoursePage() {
     setIsGenerating(true);
     setError(null);
     try {
-      const response = await axios.post('http://127.0.0.1:8000/generate-course/', {
+      const response = await axios.post('https://craftify-course-creation-platform.onrender.com/generate-course/', {
         topic: formData.topic,
         difficulty: formData.difficulty,
       });
