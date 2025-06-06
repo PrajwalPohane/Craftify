@@ -8,7 +8,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://craftify-yb34.onrender.com"]  # Adjust this to your frontend's URL in production
+    allow_origins=["https://craftify-yb34.onrender.com"],  # Adjust this to your frontend's URL in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
