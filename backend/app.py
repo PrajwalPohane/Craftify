@@ -141,3 +141,8 @@ async def get_video(request: VideoRequest):
             status_code=500,
             detail=f"Failed to get video: {str(e)}"
         )
+
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("app:app", host="0.0.0.0", port=port, reload=False)
