@@ -1,0 +1,228 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mindmap Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes flipIn {
+  from { transform: rotateX(-90deg); opacity: 0; }
+  to { transform: rotateX(0); opacity: 1; }
+}
+
+/* Animation Classes */
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.5s ease-out;
+}
+
+.animate-flipIn {
+  animation: flipIn 0.5s ease-out;
+}
+
+/* Modal Layout */
+.mindmap-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 1200px;
+  max-height: 90vh;
+  overflow: auto;
+}
+
+.modal-header {
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Main Mindmap Container */
+.mindmap-container {
+  padding: 2rem;
+  overflow: auto;
+}
+
+.diagram-container {
+  min-height: 500px;
+  position: relative;
+}
+
+/* Root Node */
+.root-node {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.root-card {
+  background: #4f46e5;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* Modules Container */
+.modules-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+/* Module Node */
+.module-node {
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+}
+
+.module-card {
+  background: #818cf8;
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* Topics Container */
+.topics-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Topic Tag */
+.topic-tag {
+  flex: 1;
+  min-width: 120px;
+}
+
+.topic-card {
+  background: #c7d2fe;
+  color: #1e40af;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+/* Connection Lines */
+.connection-line {
+  height: 2px;
+  background: #e5e7eb;
+  margin: 1rem 0;
+}
+
+.root-connection {
+  width: 2px;
+  height: 2rem;
+  margin: 0 auto;
+}
+
+.module-connection {
+  width: 100%;
+}
+
+/* Hover Effects */
+.root-card:hover {
+  @apply shadow-xl border-primary-500/40 -translate-y-0.5 transition-all duration-200;
+}
+
+.module-card:hover {
+  @apply shadow-xl border-blue-500/40 -translate-y-0.5 transition-all duration-200;
+}
+
+.topic-card:hover {
+  @apply border-green-500/40;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .diagram-container {
+    min-width: 600px;
+  }
+  
+  .modules-container {
+    gap-x: 12px;
+    gap-y: 16px;
+  }
+  
+  .module-card {
+    width: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mindmap-container {
+    padding: 2rem 1rem;
+  }
+  
+  .diagram-container {
+    min-width: 400px;
+  }
+  
+  .root-card {
+    width: 280px;
+  }
+  
+  .module-card {
+    width: 220px;
+  }
+}
+
+.aspect-w-16 {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.aspect-w-16 iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Quiz Progress Bar */
+.progress-bar {
+  height: 0.5rem;
+  background-color: #4f46e5;
+  border-radius: 9999px;
+  transition: width 300ms ease-in-out;
+}
+
+.progress-bar[data-progress] {
+  width: var(--progress);
+}
+
+.progress-container {
+  width: 100%;
+  height: 0.5rem;
+  background-color: #e5e7eb;
+  border-radius: 9999px;
+}
