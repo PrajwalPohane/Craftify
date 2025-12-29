@@ -1,7 +1,7 @@
 import requests
 from youtube_transcript_api import YouTubeTranscriptApi
 
-YOUTUBE_API_KEY ="AIzaSyC6A7sDDFyI3r_6bKasYgTCn4tJ5aSApYM"
+YOUTUBE_API_KEY =""
 
 topic = "Cloud Computing Basics"
 
