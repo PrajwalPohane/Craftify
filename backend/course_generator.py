@@ -1,6 +1,6 @@
 from groq import Groq
 
-api_key = "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"
+api_key = "YOUR_GROQ_API_KEY"
 
 if not api_key:
     raise ValueError("API key not found in Colab secrets. Please ensure that the 'GROQ_API_KEY' is added to the Colab secrets.")
